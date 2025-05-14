@@ -117,3 +117,136 @@ document.getElementById("contactForm").onsubmit = function(e) {
 </html>
 
 
+
+
+-------CONTACT CANTIK-------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Tealive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #5a189a;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #9d4edd;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 10px;
+           
+        }
+        h1 {
+            text-align: center;
+            color: #5a189a;
+        }
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5a189a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="reset"] {
+            background-color: #adb5bd;
+            margin-left: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #f1f1f1;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/tealive-logo.png" alt="Tealive Logo" height="60">
+    </header>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="menu.html">MENU</a>
+        <a href="contact.html">CONTACT US</a>
+    </nav>
+
+    <main>
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Write your message here..." rows="6" required></textarea>
+
+            <button type="submit">Submit</button>
+            <button type="reset" onclick="return confirmReset()">Reset</button>
+        </form>
+    </main>
+
+    <footer>
+        &copy; 2025 Tealive. All rights reserved.
+    </footer>
+
+    <script>
+        function confirmReset() {
+            return confirm("Are you sure you want to reset the form?");
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !message) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            alert("Thank you for contacting us, " + name + "!");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
